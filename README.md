@@ -35,9 +35,11 @@ Method: POST
     "age": 35
 } ```
 
+
 ### Response Format:
 
 Example Response:
+
 
 ``` {
     "prediction": 1,
@@ -45,14 +47,14 @@ Example Response:
     "message": "The patient is likely to have diabetes."
 } ```
 
+
 # Video Demo
 
 Watch the demo video here: YouTube Link
 
 ### Project Structure
 
-```
-.
+``` .
 ├── api
 │   ├── app.py             # FastAPI backend implementation
 │   ├── model.pkl          # Trained machine learning model
@@ -61,9 +63,8 @@ Watch the demo video here: YouTube Link
 │   ├── lib
 │   │   ├── main.dart      # Flutter app implementation
 │   ├── pubspec.yaml       # Flutter dependencies
-├── README.md              # Project documentation (this file)
+├── README.md              # Project documentation (this file) ```
 
-```
 
 # Installation
 
@@ -77,31 +78,31 @@ cd your-repository/api
 Create a virtual environment:
 
 ``` python -m venv venv
-source venv/bin/activate  # For Windows use `venv\Scripts\activate`
+source venv/bin/activate  # For Windows use `venv\Scripts\activate`  ```
 
 Install dependencies:
 
-pip install -r requirements.txt
+``` pip install -r requirements.txt ```
 
 Run the FastAPI server:
 
-uvicorn app:app --reload
+```` uvicorn app:app --reload ```
 
 Flutter App Setup
 
 Clone the repository:
 
-git clone https://github.com/tamandakaunda-15/linear_regression_model.git
+``` git clone https://github.com/tamandakaunda-15/linear_regression_model.git
 
-cd your-repository/flutter_app ```
+cd your-repository/flutter_app  ```
 
 ## Install Flutter dependencies:
 
-``` flutter pub get
+``` flutter pub get ```
 
 Run the Flutter app on an emulator or device:
 
-flutter run ```
+``` flutter run  ```
 
 ## Technologies Used
 
