@@ -68,7 +68,7 @@ Project Structure
 
 Clone the repository:
 
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/tamandakaunda-15/linear_regression_model.git
 cd your-repository/api
 
 Create a virtual environment:
@@ -88,7 +88,8 @@ Flutter App Setup
 
 Clone the repository:
 
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/tamandakaunda-15/linear_regression_model.git
+
 cd your-repository/flutter_app
 
 ## Install Flutter dependencies:
