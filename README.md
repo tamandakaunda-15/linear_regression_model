@@ -65,7 +65,7 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 1. Clone the repository:
     ```bash
     git clone https://github.com/tamandakaunda-15/linear_regression_model.git
-    cd your-repository/api
+    cd linear_regression_model/summative/API
     ```
 
 2. Create a virtual environment:
@@ -90,7 +90,7 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 
     ```bash
     git clone  https://github.com/tamandakaunda-15/linear_regression_model.git
-    cd your-repository/flutter_app
+    cd linear_regression_model/diabetes_prediction_app
     ```
 
 2. Install Flutter dependencies:
