@@ -82,27 +82,27 @@ source venv/bin/activate  # For Windows use `venv\Scripts\activate`  ```
 
 Install dependencies:
 
-``` pip install -r requirements.txt ```
+` pip install -r requirements.txt `
 
 Run the FastAPI server:
 
-```` uvicorn app:app --reload ```
+` uvicorn app:app --reload `
 
 Flutter App Setup
 
 Clone the repository:
 
-``` git clone https://github.com/tamandakaunda-15/linear_regression_model.git
+``` git clone https://github.com/tamandakaunda-15/linear_regression_model.git 
 
 cd your-repository/flutter_app  ```
 
 ## Install Flutter dependencies:
 
-``` flutter pub get ```
+` flutter pub get `
 
 Run the Flutter app on an emulator or device:
 
-``` flutter run  ```
+` flutter run  `
 
 ## Technologies Used
 
