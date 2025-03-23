@@ -1,4 +1,4 @@
-Machine Learning Project: Medical Cost and Diabetes Prediction
+# Machine Learning Project: Medical Cost and Diabetes Prediction
 
 This repository contains a comprehensive machine learning project that includes:
 
