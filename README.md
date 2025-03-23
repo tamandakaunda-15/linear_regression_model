@@ -1,55 +1,52 @@
 # Machine Learning Project: Medical Cost and Diabetes Prediction
 
 This repository contains a comprehensive machine learning project that includes:
+1. A linear regression model for predicting medical insurance costs
+2. A FastAPI application for diabetes prediction
+3. A Flutter mobile app that connects to the API
 
-A linear regression model for predicting medical insurance costs
-
-A FastAPI application for diabetes prediction
-
-A Flutter mobile app that connects to the API
-
-# API Endpoint
+## API Endpoint
 
 The API is hosted locally and can be accessed at:
+- Base URL: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+- Swagger UI Documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-Base URL: http://127.0.0.1:8000/
+### Request Format for Diabetes Prediction:
+- Endpoint: `/predict`
+- Method: `POST`
+- Request Body:
 
-Swagger UI Documentation: http://127.0.0.1:8000/docs
+    ```json
+    {
+        "pregnancies": 2,
+        "glucose": 150,
+        "blood_pressure": 80,
+        "skin_thickness": 30,
+        "insulin": 100,
+        "bmi": 28,
+        "diabetes_pedigree": 0.5,
+        "age": 35
+    }
+    ```
 
-Request Format for Diabetes Prediction:
+### Response Format:
+- Example Response:
 
-Endpoint: /predict
+    ```json
+    {
+        "prediction": 1,
+        "probability": 0.85,
+        "message": "The patient is likely to have diabetes."
+    }
+    ```
 
-Method: POST
+## Video Demo
 
-### Request Body:
+Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 
+## Project Structure
 
-```json
-{
-    "pregnancies": 2,
-    "glucose": 150,
-    "blood_pressure": 80,
-    "skin_thickness": 30,
-    "insulin": 100,
-    "bmi": 28,
-    "diabetes_pedigree": 0.5,
-    "age": 35
-}
-
-
-Example Response:
-
-```json
-{
-    "prediction": 1,
-    "probability": 0.85,
-    "message": "The patient is likely to have diabetes."
-}
-
-
-
-```bash
+```
 .
 ├── api
 │   ├── app.py             # FastAPI backend implementation
@@ -60,30 +57,64 @@ Example Response:
 │   │   ├── main.dart      # Flutter app implementation
 │   ├── pubspec.yaml       # Flutter dependencies
 ├── README.md              # Project documentation (this file)
+```
 
+## Installation
 
+### FastAPI Setup
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    cd your-repository/api
+    ```
 
-Clone the repository:
+2. Create a virtual environment:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # For Windows use `venv\Scripts\activate`
+    ```
 
-```bash
-git clone https://github.com/tamandakaunda-15/linear_regression_model.git
-cd your-repository/api
+3. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Create a virtual environment:
-`python -m venv venv`
-source venv/bin/activate  # For Windows use `venv\Scripts\activate`
+4. Run the FastAPI server:
 
+    ```bash
+    uvicorn app:app --reload
+    ```
 
+### Flutter App Setup
+1. Clone the repository:
 
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    cd your-repository/flutter_app
+    ```
 
-# Acknowledgments
-Thanks to FastAPI for providing a fast and easy framework for API development.
+2. Install Flutter dependencies:
 
-Thanks to Flutter for enabling cross-platform mobile app development.
+    ```bash
+    flutter pub get
+    ```
 
-# Acknowledgments
+3. Run the Flutter app on an emulator or device:
 
-Thanks to FastAPI for providing a fast and easy framework for API development.
+    ```bash
+    flutter run
+    ```
 
-Thanks to Flutter for enabling cross-platform mobile app development.
+## Technologies Used
+- **Machine Learning**: Scikit-learn (RandomForestClassifier, Linear Regression)
+- **Backend**: FastAPI
+- **Frontend**: Flutter
+- **Deployment**: Uvicorn (ASGI server), Heroku/Custom Deployment (your choice)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+- Thanks to [FastAPI](https://fastapi.tiangolo.com/) for providing a fast and easy framework for API development.
+- Thanks to [Flutter](https://flutter.dev/) for enabling cross-platform mobile app development.
 
