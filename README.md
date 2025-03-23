@@ -22,7 +22,7 @@ Endpoint: /predict
 
 Method: POST
 
-Request Body:
+### Request Body:
 
 {
     "pregnancies": 2,
@@ -35,22 +35,23 @@ Request Body:
     "age": 35
 }
 
-Response Format:
+### Response Format:
 
 Example Response:
 
-{
+'''{
     "prediction": 1,
     "probability": 0.85,
     "message": "The patient is likely to have diabetes."
-}
+} '''
 
 # Video Demo
 
 Watch the demo video here: YouTube Link
 
-Project Structure
+### Project Structure
 
+'''
 .
 ├── api
 │   ├── app.py             # FastAPI backend implementation
@@ -61,6 +62,8 @@ Project Structure
 │   │   ├── main.dart      # Flutter app implementation
 │   ├── pubspec.yaml       # Flutter dependencies
 ├── README.md              # Project documentation (this file)
+
+'''
 
 # Installation
 
@@ -73,7 +76,7 @@ cd your-repository/api
 
 Create a virtual environment:
 
-python -m venv venv
+''' python -m venv venv
 source venv/bin/activate  # For Windows use `venv\Scripts\activate`
 
 Install dependencies:
@@ -90,15 +93,15 @@ Clone the repository:
 
 git clone https://github.com/tamandakaunda-15/linear_regression_model.git
 
-cd your-repository/flutter_app
+cd your-repository/flutter_app '''
 
 ## Install Flutter dependencies:
 
-flutter pub get
+''' flutter pub get
 
 Run the Flutter app on an emulator or device:
 
-flutter run
+flutter run '''
 
 ## Technologies Used
 
