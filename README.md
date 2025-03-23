@@ -64,14 +64,14 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 ### FastAPI Setup
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/tamandakaunda-15/linear_regression_model.git
     cd your-repository/api
     ```
 
 2. Create a virtual environment:
     ```bash
     python -m venv venv
-    source venv/bin/activate  # For Windows use `venv\Scripts\activate`
+    source venv/bin/activate  #  use `venv\Scripts\activate` for windows
     ```
 
 3. Install dependencies:
@@ -89,7 +89,7 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone  https://github.com/tamandakaunda-15/linear_regression_model.git
     cd your-repository/flutter_app
     ```
 
