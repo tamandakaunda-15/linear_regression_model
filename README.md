@@ -23,8 +23,8 @@ Endpoint: /predict
 Method: POST
 
 ### Request Body:
-json ```
- {
+
+``` {
     "pregnancies": 2,
     "glucose": 150,
     "blood_pressure": 80,
@@ -40,8 +40,8 @@ json ```
 
 Example Response:
 
-```
- {
+
+``` {
     "prediction": 1,
     "probability": 0.85,
     "message": "The patient is likely to have diabetes."
