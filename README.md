@@ -24,6 +24,7 @@ Method: POST
 
 ### Request Body:
 
+
 ```json
 {
     "pregnancies": 2,
@@ -35,24 +36,20 @@ Method: POST
     "diabetes_pedigree": 0.5,
     "age": 35
 }
-Response Format:
+
+
 Example Response:
 
-json
-Copy
-Edit
+```json
 {
     "prediction": 1,
     "probability": 0.85,
     "message": "The patient is likely to have diabetes."
 }
-Video Demo
-Watch the demo video here: YouTube Link
 
-Project Structure
-bash
-Copy
-Edit
+
+
+```bash
 .
 ├── api
 │   ├── app.py             # FastAPI backend implementation
@@ -63,67 +60,23 @@ Edit
 │   │   ├── main.dart      # Flutter app implementation
 │   ├── pubspec.yaml       # Flutter dependencies
 ├── README.md              # Project documentation (this file)
-Installation
-FastAPI Setup
+
+
+
 Clone the repository:
 
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/tamandakaunda-15/linear_regression_model.git
 cd your-repository/api
+
 Create a virtual environment:
-
-bash
-Copy
-Edit
-python -m venv venv
+`python -m venv venv`
 source venv/bin/activate  # For Windows use `venv\Scripts\activate`
-Install dependencies:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Run the FastAPI server:
 
-bash
-Copy
-Edit
-uvicorn app:app --reload
-Flutter App Setup
-Clone the repository:
 
-bash
-Copy
-Edit
-git clone https://github.com/tamandakaunda-15/linear_regression_model.git
-cd your-repository/flutter_app
-Install Flutter dependencies:
 
-bash
-Copy
-Edit
-flutter pub get
-Run the Flutter app on an emulator or device:
-
-bash
-Copy
-Edit
-flutter run
-Technologies Used
-Machine Learning: Scikit-learn (RandomForestClassifier, Linear Regression)
-
-Backend: FastAPI
-
-Frontend: Flutter
-
-Deployment: Uvicorn (ASGI server), Heroku/Custom Deployment (your choice)
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Acknowledgments
+# Acknowledgments
 Thanks to FastAPI for providing a fast and easy framework for API development.
 
 Thanks to Flutter for enabling cross-platform mobile app development.
