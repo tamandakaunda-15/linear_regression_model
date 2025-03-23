@@ -8,7 +8,7 @@ A FastAPI application for diabetes prediction
 
 A Flutter mobile app that connects to the API
 
-API Endpoint
+# API Endpoint
 
 The API is hosted locally and can be accessed at:
 
@@ -45,7 +45,7 @@ Example Response:
     "message": "The patient is likely to have diabetes."
 }
 
-Video Demo
+# Video Demo
 
 Watch the demo video here: YouTube Link
 
@@ -62,9 +62,9 @@ Project Structure
 │   ├── pubspec.yaml       # Flutter dependencies
 ├── README.md              # Project documentation (this file)
 
-Installation
+# Installation
 
-FastAPI Setup
+## FastAPI Setup
 
 Clone the repository:
 
@@ -91,7 +91,7 @@ Clone the repository:
 git clone https://github.com/your-username/your-repository.git
 cd your-repository/flutter_app
 
-Install Flutter dependencies:
+## Install Flutter dependencies:
 
 flutter pub get
 
@@ -99,7 +99,7 @@ Run the Flutter app on an emulator or device:
 
 flutter run
 
-Technologies Used
+## Technologies Used
 
 Machine Learning: Scikit-learn (RandomForestClassifier, Linear Regression)
 
@@ -109,11 +109,11 @@ Frontend: Flutter
 
 Deployment: Uvicorn (ASGI server), Heroku/Custom Deployment (your choice)
 
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 
 Thanks to FastAPI for providing a fast and easy framework for API development.
 
