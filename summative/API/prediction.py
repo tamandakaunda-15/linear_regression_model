@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, validator 
+from pydantic import BaseModel, field_validator
 import joblib
 import numpy as np
 import pandas as pd
@@ -35,13 +36,13 @@ class DiabetesInput(BaseModel):
     age: int = Field(..., ge=0, le=120, description="Age in years")
     
     # Additional validators
-    @validator('pregnancies')
+    @field_validator('pregnancies')
     def pregnancies_must_be_realistic(cls, v):
         if v > 15:
             raise ValueError('Number of pregnancies seems unrealistically high')
         return v
     
-    @validator('glucose')
+    @field_validator('glucose')
     def glucose_must_be_realistic(cls, v):
         if v < 40:
             raise ValueError('Glucose level is too low to be realistic')
