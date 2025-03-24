@@ -8,8 +8,8 @@ This repository contains a comprehensive machine learning project that includes:
 ## API Endpoint
 
 The API is hosted locally and can be accessed at:
-- Base URL: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
-- Swagger UI Documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- Base URL: [https://prediction-a28a.onrender.com/](https://prediction-a28a.onrender.com/)
+- Swagger UI Documentation: [https://prediction-a28a.onrender.com/docs](https://prediction-a28a.onrender.com/docs)
 
 ### Request Format for Diabetes Prediction:
 - Endpoint: `/predict`

@@ -76,7 +76,6 @@ class PredictionPage extends StatefulWidget {
 class _PredictionPageState extends State<PredictionPage> {
   final _formKey = GlobalKey<FormState>();
   
-  // Controllers for text fields
   final pregnanciesController = TextEditingController();
   final glucoseController = TextEditingController();
   final bloodPressureController = TextEditingController();
@@ -123,9 +122,9 @@ class _PredictionPageState extends State<PredictionPage> {
       };
 
       try {
-        // Replace with your actual API endpoint
+        // API endpoint
         final response = await http.post(
-          Uri.parse('http://localhost:8000/predict'),
+          Uri.parse('https://prediction-a28a.onrender.com/predict'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode(data),
         );
