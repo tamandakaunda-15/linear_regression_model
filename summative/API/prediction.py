@@ -9,6 +9,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import uvicorn
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))  
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  
+
+
 
 # Create FastAPI app
 app = FastAPI(title="Diabetes Prediction API",
