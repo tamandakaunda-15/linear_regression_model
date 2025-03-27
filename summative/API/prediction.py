@@ -1,129 +1,123 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field, validator 
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, Field, validator
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 import uvicorn
-import sys
 import os
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))  
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  
-
-
-
 # Create FastAPI app
-app = FastAPI(title="Diabetes Prediction API",
-              description="API for predicting diabetes based on medical data",
+app = FastAPI(title="Insurance Cost Prediction API",
+              description="API for predicting medical insurance costs",
               version="1.0.0")
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Define input data model with constraints
-class DiabetesInput(BaseModel):
-    pregnancies: int = Field(..., ge=0, le=20, description="Number of pregnancies")
-    glucose: float = Field(..., ge=0, le=300, description="Glucose level")
-    blood_pressure: float = Field(..., ge=0, le=200, description="Blood pressure")
-    skin_thickness: float = Field(..., ge=0, le=100, description="Skin thickness")
-    insulin: float = Field(..., ge=0, le=1000, description="Insulin level")
-    bmi: float = Field(..., ge=0, le=70, description="Body Mass Index")
-    diabetes_pedigree: float = Field(..., ge=0, le=3, description="Diabetes pedigree function")
-    age: int = Field(..., ge=0, le=120, description="Age in years")
+class InsuranceInput(BaseModel):
+    age: int = Field(..., ge=18, le=100, description="Age in years")
+    sex: str = Field(..., description="Gender (male/female)")
+    bmi: float = Field(..., ge=10, le=50, description="Body Mass Index")
+    children: int = Field(..., ge=0, le=10, description="Number of children/dependents")
+    smoker: str = Field(..., description="Smoking status (yes/no)")
+    region: str = Field(..., description="Region (northeast/northwest/southeast/southwest)")
     
-    # Additional validators
-    @field_validator('pregnancies')
-    def pregnancies_must_be_realistic(cls, v):
-        if v > 15:
-            raise ValueError('Number of pregnancies seems unrealistically high')
-        return v
+    # Validators
+    @validator('sex')
+    def sex_must_be_valid(cls, v):
+        if v.lower() not in ['male', 'female']:
+            raise ValueError('Sex must be either male or female')
+        return v.lower()
     
-    @field_validator('glucose')
-    def glucose_must_be_realistic(cls, v):
-        if v < 40:
-            raise ValueError('Glucose level is too low to be realistic')
-        return v
+    @validator('smoker')
+    def smoker_must_be_valid(cls, v):
+        if v.lower() not in ['yes', 'no']:
+            raise ValueError('Smoker must be either yes or no')
+        return v.lower()
+    
+    @validator('region')
+    def region_must_be_valid(cls, v):
+        valid_regions = ['northeast', 'northwest', 'southeast', 'southwest']
+        if v.lower() not in valid_regions:
+            raise ValueError(f'Region must be one of: {", ".join(valid_regions)}')
+        return v.lower()
 
 # Define prediction response model
-class DiabetesPrediction(BaseModel):
-    prediction: int
-    probability: float
+class InsurancePrediction(BaseModel):
+    predicted_cost: float
     message: str
 
-# Load and train the model
-def train_model():
-    # Load the diabetes dataset
-    url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
-    column_names = ['pregnancies', 'glucose', 'blood_pressure', 'skin_thickness', 
-                    'insulin', 'bmi', 'diabetes_pedigree', 'age', 'outcome']
-    dataset = pd.read_csv(url, names=column_names)
-    
-    # Split features and target
-    X = dataset.iloc[:, :-1]
-    y = dataset.iloc[:, -1]
-    
-    # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    
-    # Scale the features
-    scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    
-    # Train a Random Forest model
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
-    model.fit(X_train_scaled, y_train)
-    
-    return model, scaler
+# Get the absolute path of the directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SCALER_PATH = os.path.join(BASE_DIR, "../linear_regression/scaler.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "../linear_regression/best_model.pkl")
 
-# Train the model and get the scaler
-model, scaler = train_model()
+# Load the model and scaler
+try:
+    print(f"Current Working Directory: {os.getcwd()}")
+    print(f"Loading scaler from: {SCALER_PATH}")
+    print(f"Loading model from: {MODEL_PATH}")
+
+    # Load the scaler
+    scaler = joblib.load(SCALER_PATH)
+    
+    # Load the model
+    model = joblib.load(MODEL_PATH)
+    
+    print("Model and scaler loaded successfully")
+except Exception as e:
+    print(f"Error loading model or scaler: {e}")
+
+# Define the expected columns (feature names)
+expected_columns = ['age', 'bmi', 'children', 'sex_male', 'smoker_yes', 
+                   'region_northwest', 'region_southeast', 'region_southwest']
 
 # Define prediction endpoint
-@app.post("/predict", response_model=DiabetesPrediction)
-def predict(data: DiabetesInput):
+@app.post("/predict", response_model=InsurancePrediction)
+def predict(data: InsuranceInput):
     try:
-        # Convert input data to numpy array
-        input_data = np.array([
-            [
-                data.pregnancies,
-                data.glucose,
-                data.blood_pressure,
-                data.skin_thickness,
-                data.insulin,
-                data.bmi,
-                data.diabetes_pedigree,
-                data.age
-            ]
-        ])
+        # Create a dataframe with the input values
+        input_data = {
+            'age': [data.age],
+            'bmi': [data.bmi],
+            'children': [data.children]
+        }
         
-        # Scale the input data
-        input_data_scaled = scaler.transform(input_data)
+        # Add dummy variables
+        input_data['sex_male'] = [1 if data.sex == 'male' else 0]
+        input_data['smoker_yes'] = [1 if data.smoker == 'yes' else 0]
+        
+        # Region dummies
+        input_data['region_northwest'] = [1 if data.region == 'northwest' else 0]
+        input_data['region_southeast'] = [1 if data.region == 'southeast' else 0]
+        input_data['region_southwest'] = [1 if data.region == 'southwest' else 0]
+        
+        # Create dataframe
+        df = pd.DataFrame(input_data)
+        
+        # Ensure columns are in the same order as during training
+        for col in expected_columns:
+            if col not in df.columns:
+                df[col] = 0
+        df = df[expected_columns]
+        
+        # Scale the features
+        df_scaled = scaler.transform(df)
         
         # Make prediction
-        prediction = model.predict(input_data_scaled)[0]
-        probability = model.predict_proba(input_data_scaled)[0][1]
+        prediction = model.predict(df_scaled)[0]
         
-        # Create response message
-        if prediction == 1:
-            message = "The patient is likely to have diabetes."
-        else:
-            message = "The patient is unlikely to have diabetes."
-        
-        return DiabetesPrediction(
-            prediction=int(prediction),
-            probability=float(probability),
-            message=message
+        return InsurancePrediction(
+            predicted_cost=float(prediction),
+            message=f"The estimated insurance cost is ${prediction:.2f}"
         )
     
     except Exception as e:
@@ -132,8 +126,8 @@ def predict(data: DiabetesInput):
 # Root endpoint
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the Diabetes Prediction API. Go to /docs for the Swagger UI."}
+    return {"message": "Welcome to the Insurance Cost Prediction API. Go to /docs for the Swagger UI."}
 
 # Run the application
 if __name__ == "__main__":
-    uvicorn.run("prediction:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("prediction:app", host="127.0.0.1", port=8001, reload=True)
