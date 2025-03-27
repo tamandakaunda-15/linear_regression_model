@@ -55,7 +55,7 @@ The API is hosted locally and can be accessed at:
 - Base URL: [https://medical-insurance-predictor-44bt.onrender.com/](https://medical-insurance-predictor-44bt.onrender.com/)
 - Swagger UI Documentation: [https://medical-insurance-predictor-44bt.onrender.com/docs](https://medical-insurance-predictor-44bt.onrender.com/docs)
 
-### Request Format for Diabetes Prediction:
+### Request Format for Medical Insurance Prediction:
 - Endpoint: `/predict`
 - Method: `POST`
 - Request Body:
@@ -148,10 +148,10 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
     ```
 
 ## Technologies Used
-- **Machine Learning**: Scikit-learn (RandomForestClassifier, Linear Regression)
-- **Backend**: FastAPI
+- **Machine Learning**: Scikit-learn (RandomForestClassifier, Linear Regression), Seaborn, Matplotli
+- **Backend**: FastAPI (Python)
 - **Frontend**: Flutter
-- **Deployment**: Uvicorn (ASGI server), Heroku/Custom Deployment (your choice)
+- **Deployment**: Uvicorn (ASGI server), Render(for fastAPI deployment)
 
 
 
