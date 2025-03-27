@@ -1,59 +1,41 @@
 # Machine Learning Project: Medical Cost and Diabetes Prediction
 
-Thought for 1 second## Compelling Problem Statement & Target Stakeholders
-
 This repository contains a comprehensive machine learning project that includes:
 1. A linear regression model for predicting medical insurance costs
 2. A FastAPI application for diabetes prediction
 3. A Flutter mobile app that connects to the API(MediCost Predictor)
 
-### Problem Statement
+#### Problem Statement 
 
-Medical insurance costs in the United States have been rising steadily, with premiums increasing by 47% over the last decade. Many individuals and families struggle to anticipate these costs when budgeting for healthcare expenses, leading to financial strain and potential avoidance of necessary medical care. The lack of transparency and predictability in insurance pricing creates significant challenges for consumers trying to make informed financial decisions about their healthcare coverage.
+While our model is trained on US healthcare data, the underlying problem of predicting and understanding medical costs is universal. Healthcare affordability is a global challenge, with the World Health Organization reporting that over 800 million people spend at least 10% of their household budget on healthcare expenses. Our application demonstrates how machine learning can bring transparency to healthcare costs—a concept applicable across different healthcare systems worldwide.
 
-MediCost Predictor addresses this critical gap by providing accurate, personalized insurance cost estimates based on key demographic and health factors. By leveraging machine learning algorithms trained on real insurance data, our application empowers users with the information they need to plan effectively for healthcare expenses, compare different insurance scenarios, and make data-driven decisions about their coverage options.
+#### Target Stakeholders
 
-### Target Stakeholders
+ **Healthcare Policymakers**
 
-1. **Individual Insurance Seekers**
-
-1. Young adults transitioning to independent healthcare coverage
-2. Self-employed professionals managing their own insurance
-3. People experiencing life changes (marriage, relocation, career shifts) that affect insurance needs
-4. Individuals approaching retirement and planning for Medicare supplements
+1. Government officials designing healthcare financing systems
+2. Public health administrators allocating resources
+3. International development organizations working on healthcare access
 
 
+ **Healthcare Researchers**
 
-2. **Families**
-
-1. Parents planning for family healthcare expenses
-2. Families considering adding dependents to their insurance
-3. Households evaluating the financial impact of lifestyle changes (e.g., smoking cessation)
-
+1. Academics studying healthcare economics across different systems
+2. Researchers comparing cost factors between countries
+3. Data scientists developing predictive models for healthcare
 
 
-3. **Financial Planners & Advisors**
+ **Global Health Organizations**
 
-1. Financial advisors helping clients budget for healthcare costs
-2. Retirement planners incorporating healthcare expenses into long-term financial plans
-3. Wealth managers optimizing client portfolios with healthcare considerations
+1. NGOs working on healthcare affordability
+2. International agencies developing healthcare financing solutions
+3. Cross-border healthcare providers
 
+ **Educational Institutions**
 
-
-4. **Healthcare Providers**
-
-1. Medical practices helping patients understand potential costs
-2. Healthcare administrators advising patients on financial planning
-3. Patient advocates working to improve financial literacy around healthcare
-
-
-
-5. **Insurance Brokers & Agents**
-
-1. Insurance professionals providing quick estimates to potential clients
-2. Brokers comparing different insurance scenarios for customers
-3. Agents demonstrating the impact of lifestyle factors on premiums
-
+1. Medical schools teaching healthcare economics
+2. Public health programs studying cost prediction models
+3. Data science programs exploring healthcare applications
 
 ### Value Proposition
 
@@ -87,8 +69,7 @@ The API is hosted locally and can be accessed at:
   "children": 1,
   "smoker": "yes",
   "region": "southwest"
-}
-    
+       }   
     ```
 
 ### Response Format:
