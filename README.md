@@ -1,15 +1,77 @@
 # Machine Learning Project: Medical Cost and Diabetes Prediction
 
+Thought for 1 second## Compelling Problem Statement & Target Stakeholders
+
 This repository contains a comprehensive machine learning project that includes:
 1. A linear regression model for predicting medical insurance costs
 2. A FastAPI application for diabetes prediction
-3. A Flutter mobile app that connects to the API
+3. A Flutter mobile app that connects to the API(MediCost Predictor)
+
+### Problem Statement
+
+Medical insurance costs in the United States have been rising steadily, with premiums increasing by 47% over the last decade. Many individuals and families struggle to anticipate these costs when budgeting for healthcare expenses, leading to financial strain and potential avoidance of necessary medical care. The lack of transparency and predictability in insurance pricing creates significant challenges for consumers trying to make informed financial decisions about their healthcare coverage.
+
+MediCost Predictor addresses this critical gap by providing accurate, personalized insurance cost estimates based on key demographic and health factors. By leveraging machine learning algorithms trained on real insurance data, our application empowers users with the information they need to plan effectively for healthcare expenses, compare different insurance scenarios, and make data-driven decisions about their coverage options.
+
+### Target Stakeholders
+
+1. **Individual Insurance Seekers**
+
+1. Young adults transitioning to independent healthcare coverage
+2. Self-employed professionals managing their own insurance
+3. People experiencing life changes (marriage, relocation, career shifts) that affect insurance needs
+4. Individuals approaching retirement and planning for Medicare supplements
+
+
+
+2. **Families**
+
+1. Parents planning for family healthcare expenses
+2. Families considering adding dependents to their insurance
+3. Households evaluating the financial impact of lifestyle changes (e.g., smoking cessation)
+
+
+
+3. **Financial Planners & Advisors**
+
+1. Financial advisors helping clients budget for healthcare costs
+2. Retirement planners incorporating healthcare expenses into long-term financial plans
+3. Wealth managers optimizing client portfolios with healthcare considerations
+
+
+
+4. **Healthcare Providers**
+
+1. Medical practices helping patients understand potential costs
+2. Healthcare administrators advising patients on financial planning
+3. Patient advocates working to improve financial literacy around healthcare
+
+
+
+5. **Insurance Brokers & Agents**
+
+1. Insurance professionals providing quick estimates to potential clients
+2. Brokers comparing different insurance scenarios for customers
+3. Agents demonstrating the impact of lifestyle factors on premiums
+
+
+### Value Proposition
+
+MediCost Predictor delivers value through:
+
+- **Accuracy**: Leveraging advanced machine learning models trained on comprehensive datasets
+- **Accessibility**: Providing instant estimates without complex paperwork or consultations
+- **Education**: Helping users understand the factors that influence their insurance costs
+- **Empowerment**: Enabling informed decision-making about healthcare and lifestyle choices
+- **Planning**: Supporting better financial planning and budgeting for healthcare expenses
+
+
 
 ## API Endpoint
 
 The API is hosted locally and can be accessed at:
-- Base URL: [https://prediction-a28a.onrender.com/](https://prediction-a28a.onrender.com/)
-- Swagger UI Documentation: [https://prediction-a28a.onrender.com/docs](https://prediction-a28a.onrender.com/docs)
+- Base URL: [https://medical-insurance-predictor-44bt.onrender.com/](https://medical-insurance-predictor-44bt.onrender.com/)
+- Swagger UI Documentation: [https://medical-insurance-predictor-44bt.onrender.com/docs](https://medical-insurance-predictor-44bt.onrender.com/docs)
 
 ### Request Format for Diabetes Prediction:
 - Endpoint: `/predict`
@@ -17,16 +79,16 @@ The API is hosted locally and can be accessed at:
 - Request Body:
 
     ```json
-    {
-        "pregnancies": 2,
-        "glucose": 150,
-        "blood_pressure": 80,
-        "skin_thickness": 30,
-        "insulin": 100,
-        "bmi": 28,
-        "diabetes_pedigree": 0.5,
-        "age": 35
-    }
+    
+       {
+  "age": 25,
+  "sex": "female",
+  "bmi": 20,
+  "children": 1,
+  "smoker": "yes",
+  "region": "southwest"
+}
+    
     ```
 
 ### Response Format:
@@ -34,9 +96,8 @@ The API is hosted locally and can be accessed at:
 
     ```json
     {
-        "prediction": 1,
-        "probability": 0.85,
-        "message": "The patient is likely to have diabetes."
+      "predicted_cost": 15473.500462400007,
+      "message": "The estimated insurance cost is $15473.50"
     }
     ```
 
@@ -52,7 +113,7 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 │   ├── app.py             # FastAPI backend implementation
 │   ├── model.pkl          # Trained machine learning model
 │   ├── requirements.txt   # Python dependencies
-├── flutter_app
+├── insurance_cost_predictor_app
 │   ├── lib
 │   │   ├── main.dart      # Flutter app implementation
 │   ├── pubspec.yaml       # Flutter dependencies
@@ -90,7 +151,7 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 
     ```bash
     git clone  https://github.com/tamandakaunda-15/linear_regression_model.git
-    cd linear_regression_model/diabetes_prediction_app
+    cd linear_regression_model/insurance_cost_predictor
     ```
 
 2. Install Flutter dependencies:
@@ -110,6 +171,9 @@ Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
 - **Backend**: FastAPI
 - **Frontend**: Flutter
 - **Deployment**: Uvicorn (ASGI server), Heroku/Custom Deployment (your choice)
+
+
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
