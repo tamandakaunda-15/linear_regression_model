@@ -84,7 +84,7 @@ The API is hosted locally and can be accessed at:
 
 ## Video Demo
 
-Watch the demo video here: [YouTube Link](https://youtu.be/your-video-id)
+Watch the demo video here: [YouTube Link](https://youtu.be/vHLK62yC5Yk?si=ru78kRUCtEet6CT9)
 
 ## Project Structure
 
